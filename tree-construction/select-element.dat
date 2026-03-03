@@ -1,0 +1,200 @@
+#data
+<!DOCTYPE html><select><div>div 1</div><button>button</button><div>div 2</div><datalist><option>option</option></datalist><div>div 3</div></select>after
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|       <div>
+|         "div 1"
+|       <button>
+|         "button"
+|       <div>
+|         "div 2"
+|       <datalist>
+|         <option>
+|           "option"
+|       <div>
+|         "div 3"
+|     "after"
+
+#data
+<!DOCTYPE html><select><button>button</select>after
+#errors
+1:38: End tag 'select' seen but there were open elements.
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|       <button>
+|         "button"
+|     "after"
+
+#data
+<!DOCTYPE html><select><datalist>datalist</select>after
+#errors
+1:42: End tag 'select' seen but there were open elements.
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|       <datalist>
+|         "datalist"
+|     "after"
+
+#data
+<!DOCTYPE html><select><button><select></select></button></select>after
+#errors
+1:32: Start tag 'select' seen in a select context.
+1:40: Stray end tag 'select'.
+1:49: Stray end tag 'button'.
+1:58: Stray end tag 'select'.
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|       <button>
+|     "after"
+
+#data
+<!DOCTYPE html><select><button><div><select></select>after
+#errors
+1:37: Start tag 'select' seen in a select context.
+1:45: Stray end tag 'select'.
+1:50: Premature end of file.
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|       <button>
+|         <div>
+|           "after"
+
+#data
+<!DOCTYPE html><select><div><option><img>option</option></div></select>after
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|       <div>
+|         <option>
+|           <img>
+|           "option"
+|     "after"
+
+#data
+<!DOCTYPE html><select><input>after
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|     <input>
+|     "after"
+
+#data
+<!DOCTYPE html><select><textarea></textarea></select>after
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|       <textarea>
+|     "after"
+
+#data
+<!DOCTYPE html><select><option><input></option></select>after
+#errors
+1:38: Stray end tag 'option'.
+1:47: Stray end tag 'select'.
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|       <option>
+|     <input>
+|     "after"
+
+#data
+<!DOCTYPE html><select><div><input></div></select>after
+#errors
+1:30: Stray end tag 'div'.
+1:39: Stray end tag 'select'.
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|       <div>
+|     <input>
+|     "after"
+
+
+#data
+<!DOCTYPE html><select><option>A<hr><option>B</option></select>after
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|       <option>
+|         "A"
+|       <hr>
+|       <option>
+|         "B"
+|     "after"
+
+#data
+<!DOCTYPE html><select><optgroup><option>A</option><optgroup><option>B</option></select>after
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|       <optgroup>
+|         <option>
+|           "A"
+|       <optgroup>
+|         <option>
+|           "B"
+|     "after"
+
+#data
+<!DOCTYPE html><select><optgroup><option>A<option>B</select>after
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|       <optgroup>
+|         <option>
+|           "A"
+|         <option>
+|           "B"
+|     "after"
